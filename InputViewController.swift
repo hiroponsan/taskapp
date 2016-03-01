@@ -15,24 +15,20 @@ class InputViewController: UIViewController {
     @IBOutlet weak var category: UITextField!
     
     let realm = try! Realm()
-    
     var task:Task!
-
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // 背景をタップしたらdismissKeyboardメソッドを呼ぶように設定する
         let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target:self, action:"dismissKeyboard")
         self.view.addGestureRecognizer(tapGesture)
         
         titleTextField.text = task.title
         contentsTextView.text = task.contents
         datePicker.date = task.date
-        category.text = task.category
-
-        // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -48,19 +44,9 @@ class InputViewController: UIViewController {
         
         super.viewWillDisappear(animated)
     }
+    
     func dismissKeyboard(){
         // キーボードを閉じる
         view.endEditing(true)
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
