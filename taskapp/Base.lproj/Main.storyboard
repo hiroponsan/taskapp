@@ -35,7 +35,7 @@
                                 </connections>
                             </tableView>
                             <searchBar contentMode="redraw" fixedFrame="YES" placeholder="カテゴリーで検索" translatesAutoresizingMaskIntoConstraints="NO" id="SRx-gi-G2p">
-                                <rect key="frame" x="26" y="524" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                         </subviews>
@@ -57,7 +57,7 @@
                     <navigationItem key="navigationItem" id="LAC-5w-KOR">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="dLg-Ml-n6a">
                             <connections>
-                                <segue destination="uIK-8w-r8e" kind="show" identifier="cellSegue" id="Sr9-KI-kDJ"/>
+                                <segue destination="uIK-8w-r8e" kind="show" identifier="" id="Sr9-KI-kDJ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -187,6 +187,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="WdH-cE-pfb"/>
+        <segue reference="Sr9-KI-kDJ"/>
     </inferredMetricsTieBreakers>
 </document>
