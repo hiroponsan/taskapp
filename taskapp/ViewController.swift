@@ -1,8 +1,12 @@
 import UIKit
+import RealmSwift
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
+    
+     let realm = try! Realm()
+     let taskArray = try! Realm().objects(Task).sorted("date", ascending: false)   // ←追加
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,7 +22,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     // MARK: UITableViewDataSourceプロトコルのメソッド
     // データの数（＝セルの数）を返すメソッド
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+         return taskArray.count
     }
     
     // 各セルの内容を返すメソッド
