@@ -29,6 +29,10 @@
                                     <constraint firstAttribute="width" constant="320" id="S9K-mg-Wic"/>
                                     <constraint firstAttribute="height" constant="460" id="d1F-0F-lci"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="VSW-in-HAV"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="2Xs-I0-XJ3"/>
+                                </connections>
                             </tableView>
                             <searchBar contentMode="redraw" fixedFrame="YES" placeholder="カテゴリーで検索" translatesAutoresizingMaskIntoConstraints="NO" id="SRx-gi-G2p">
                                 <rect key="frame" x="26" y="524" width="320" height="44"/>
@@ -60,6 +64,7 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="tableView" destination="ApN-qR-WYm" id="Ppu-mZ-63y"/>
                         <segue destination="uIK-8w-r8e" kind="show" identifier="cellSegue" id="WdH-cE-pfb"/>
                     </connections>
                 </viewController>
