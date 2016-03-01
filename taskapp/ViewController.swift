@@ -5,7 +5,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBOutlet weak var tableView: UITableView!
     
-    
      let realm = try! Realm()
      let taskArray = try! Realm().objects(Task).sorted("date", ascending: false)   // ←追加
     
