@@ -125,15 +125,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="KuI-Bh-aga">
-                                <rect key="frame" x="16" y="301" width="288" height="120"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="120" id="L64-5R-gfL"/>
-                                </constraints>
-                                <date key="date" timeIntervalSinceReferenceDate="478419481.07342303">
-                                    <!--2016-02-29 06:18:01 +0000-->
-                                </date>
-                            </datePicker>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="カテゴリ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FbI-Rl-G0e">
                                 <rect key="frame" x="16" y="438" width="68" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -145,6 +136,15 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="KuI-Bh-aga">
+                                <rect key="frame" x="16" y="301" width="288" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="L64-5R-gfL"/>
+                                </constraints>
+                                <date key="date" timeIntervalSinceReferenceDate="478419481.07342303">
+                                    <!--2016-02-29 06:18:01 +0000-->
+                                </date>
+                            </datePicker>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -169,6 +169,12 @@
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="category" destination="Dc8-kH-Vm7" id="Et9-PR-QF3"/>
+                        <outlet property="contentsTextView" destination="CNp-vt-xlz" id="deA-1W-sli"/>
+                        <outlet property="datePicker" destination="KuI-Bh-aga" id="vVL-vQ-eIy"/>
+                        <outlet property="titleTextField" destination="y6P-ey-LdM" id="Ciz-NY-2Nb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fuD-26-c9b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
