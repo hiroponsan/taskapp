@@ -21,33 +21,33 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RND-dm-UtF">
                                 <rect key="frame" x="0.0" y="64" width="320" height="460"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </tableView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ApN-qR-WYm">
-                                <rect key="frame" x="0.0" y="64" width="320" height="460"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="320" id="S9K-mg-Wic"/>
-                                    <constraint firstAttribute="height" constant="460" id="d1F-0F-lci"/>
-                                </constraints>
-                                <connections>
-                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="VSW-in-HAV"/>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="2Xs-I0-XJ3"/>
-                                </connections>
+                                <tableView key="tableFooterView" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="ApN-qR-WYm">
+                                    <rect key="frame" x="0.0" y="64" width="320" height="460"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="320" id="S9K-mg-Wic"/>
+                                        <constraint firstAttribute="height" constant="460" id="d1F-0F-lci"/>
+                                    </constraints>
+                                    <connections>
+                                        <outlet property="dataSource" destination="BYZ-38-t0r" id="VSW-in-HAV"/>
+                                        <outlet property="delegate" destination="BYZ-38-t0r" id="2Xs-I0-XJ3"/>
+                                    </connections>
+                                </tableView>
                             </tableView>
                             <searchBar contentMode="redraw" fixedFrame="YES" placeholder="カテゴリーで検索" translatesAutoresizingMaskIntoConstraints="NO" id="SRx-gi-G2p">
                                 <rect key="frame" x="0.0" y="524" width="320" height="44"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="w3T-1z-SaR"/>
+                                </connections>
                             </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ApN-qR-WYm" secondAttribute="bottom" id="DfL-9r-vhf"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="RND-dm-UtF" secondAttribute="bottom" id="LPs-Kb-5OC"/>
-                            <constraint firstItem="ApN-qR-WYm" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Nz3-1i-XS7"/>
-                            <constraint firstItem="ApN-qR-WYm" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="RuK-93-XVg"/>
                             <constraint firstItem="RND-dm-UtF" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="X2u-Jp-zrR"/>
                             <constraint firstItem="RND-dm-UtF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="awc-Hl-fkx"/>
-                            <constraint firstAttribute="trailing" secondItem="ApN-qR-WYm" secondAttribute="trailing" id="kqG-sD-bUU"/>
                             <constraint firstAttribute="trailing" secondItem="RND-dm-UtF" secondAttribute="trailing" id="ubd-vH-O6M"/>
                         </constraints>
                     </view>
@@ -64,6 +64,7 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="searchBar" destination="SRx-gi-G2p" id="oOa-KE-SlB"/>
                         <outlet property="tableView" destination="ApN-qR-WYm" id="Ppu-mZ-63y"/>
                         <segue destination="uIK-8w-r8e" kind="show" identifier="cellSegue" id="WdH-cE-pfb"/>
                     </connections>

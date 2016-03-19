@@ -4,10 +4,12 @@ import RealmSwift
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
+    
     
      let realm = try! Realm()
-     let taskArray = try! Realm().objects(Task).sorted("date", ascending: false)   // ←追加
-    
+     var taskArray = try! Realm().objects(Task).sorted("date", ascending: false)   // ←追加
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -62,6 +64,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == UITableViewCellEditingStyle.Delete {
             // データベースから削除する  // ←以降追加する
+            let task = taskArray[indexPath.row]
+            
+            for notification in UIApplication.sharedApplication().scheduledLocalNotifications! {
+                if notification.userInfo!["id"] as! Int == task.id {
+                    UIApplication.sharedApplication().cancelLocalNotification(notification)
+                    break
+                }
+            }
             try! realm.write {
                 self.realm.delete(self.taskArray[indexPath.row])
                 tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Fade)
@@ -79,11 +89,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         } else {
             let task = Task()
             task.date = NSDate()
-            
             if taskArray.count != 0 {
                 task.id = taskArray.max("id")! + 1
             }
-            
             inputViewController.task = task
         }
     }
@@ -91,4 +99,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         super.viewWillAppear(animated)
         tableView.reloadData()
     }
+    
+    
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+    
+        taskArray = realm.objects(Task).filter("category contains '\(searchBar.text!)'").sorted("date", ascending: false)
+        
+        tableView.reloadData()
+}
+    
+    
+    
+    
+    
 }

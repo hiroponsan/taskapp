@@ -26,7 +26,6 @@ class InputViewController: UIViewController {
         
         titleTextField.text = task.title
         contentsTextView.text = task.contents
-        datePicker.date = task.date
         category.text = task.category
     }
     
@@ -40,8 +39,11 @@ class InputViewController: UIViewController {
             self.task.title = self.titleTextField.text!
             self.task.contents = self.contentsTextView.text
             self.task.date = self.datePicker.date
+            self.task.category = self.category.text!
             self.realm.add(self.task, update: true)
         }
+        
+        setNotification(task)
         
         super.viewWillDisappear(animated)
     }
@@ -50,4 +52,27 @@ class InputViewController: UIViewController {
         // キーボードを閉じる
         view.endEditing(true)
     }
+    
+    // タスクのローカル通知を設定する
+    func setNotification(task: Task) {
+        
+        // すでに同じタスクが登録されていたらキャンセルする
+        for notification in UIApplication.sharedApplication().scheduledLocalNotifications! {
+            if notification.userInfo!["id"] as! Int == task.id {
+                UIApplication.sharedApplication().cancelLocalNotification(notification)
+                break   // breakに来るとforループから抜け出せる
+            }
+        }
+        
+        let notification = UILocalNotification()
+        
+        notification.fireDate = task.date
+        notification.timeZone = NSTimeZone.defaultTimeZone()
+        notification.alertBody = "\(task.title)"
+        notification.soundName = UILocalNotificationDefaultSoundName
+        notification.userInfo = ["id":task.id]
+        UIApplication.sharedApplication().scheduleLocalNotification(notification)
+        
+    }
+
 }
