@@ -18,18 +18,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" text="" placeholder="カテゴリーで検索" translatesAutoresizingMaskIntoConstraints="NO" id="SRx-gi-G2p">
-                                <rect key="frame" x="-4" y="524" width="328" height="44"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="w3T-1z-SaR"/>
-                                </connections>
-                            </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RND-dm-UtF">
                                 <rect key="frame" x="0.0" y="64" width="320" height="460"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <tableView key="tableFooterView" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="ApN-qR-WYm">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                                    <rect key="frame" x="0.0" y="64" width="320" height="460"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
@@ -42,15 +35,22 @@
                                     </connections>
                                 </tableView>
                             </tableView>
+                            <searchBar contentMode="redraw" text="" translatesAutoresizingMaskIntoConstraints="NO" id="20F-Gn-Hrw">
+                                <rect key="frame" x="-4" y="524" width="328" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="mq0-iy-6VS"/>
+                                </connections>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="SRx-gi-G2p" firstAttribute="bottom" secondItem="8bC-Xf-vdC" secondAttribute="bottomMargin" id="4VP-V0-cjg"/>
+                            <constraint firstItem="20F-Gn-Hrw" firstAttribute="bottom" secondItem="8bC-Xf-vdC" secondAttribute="bottomMargin" id="8qy-9W-Thf"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="RND-dm-UtF" secondAttribute="bottom" id="LPs-Kb-5OC"/>
+                            <constraint firstItem="20F-Gn-Hrw" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="Wnt-Yo-DYr"/>
                             <constraint firstItem="RND-dm-UtF" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="X2u-Jp-zrR"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="SRx-gi-G2p" secondAttribute="trailing" constant="-20" id="YVz-lt-dUf"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="20F-Gn-Hrw" secondAttribute="trailing" constant="-20" id="aRy-FU-TGI"/>
                             <constraint firstItem="RND-dm-UtF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="awc-Hl-fkx"/>
-                            <constraint firstItem="SRx-gi-G2p" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="j0A-CZ-c9u"/>
                             <constraint firstAttribute="trailing" secondItem="RND-dm-UtF" secondAttribute="trailing" id="ubd-vH-O6M"/>
                         </constraints>
                     </view>
@@ -67,7 +67,6 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <outlet property="searchBar" destination="SRx-gi-G2p" id="oOa-KE-SlB"/>
                         <outlet property="tableView" destination="ApN-qR-WYm" id="Ppu-mZ-63y"/>
                         <segue destination="uIK-8w-r8e" kind="show" identifier="cellSegue" id="WdH-cE-pfb"/>
                     </connections>
